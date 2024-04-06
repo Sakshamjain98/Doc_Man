@@ -1,34 +1,58 @@
 {
-  "name": "doc-man",
-  "displayName": "doc-man",
-  "description": "",
-  "version": "0.0.1",
-  "engines": {
-    "vscode": "^1.88.0"
-  },
-  "categories": [
-    "Other"
-  ],
-  "activationEvents": [],
-  "main": "./extension.js",
-  "contributes": {
-    "commands": [{
-      "command": "doc-man.helloWorld",
-      "title": "Hello World"
-    }]
-  },
-  "scripts": {
-    "lint": "eslint .",
-    "pretest": "npm run lint",
-    "test": "vscode-test"
-  },
-  "devDependencies": {
-    "@types/vscode": "^1.88.0",
-    "@types/mocha": "^10.0.6",
-    "@types/node": "18.x",
-    "eslint": "^8.57.0",
-    "typescript": "^5.3.3",
-    "@vscode/test-cli": "^0.0.8",
-    "@vscode/test-electron": "^2.3.9"
-  }
+    "name": "doc-man",
+    "displayName": "doc-man",
+    "description": "",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.88.0"
+    },
+    "categories": [
+        "Other"
+    ],
+    "activationEvents": [],
+    "main": "./src/extension.js",
+    "contributes": {
+        "commands": [
+            {
+                "command": "doc-man.generateDocs",
+                "title": "DocMan: Generate Docs for Current File"
+            },
+            {
+                "command": "doc-man.generateComment",
+                "title": "DocMan: Add a Comment to Selected Code."
+            }
+        ],
+        "configuration": [
+            {
+                "title": "DocMan",
+                "properties": {
+                    "docman.gemini.apiKey": {
+                        "type": [
+                            "string",
+                            "null"
+                        ],
+                        "default": null,
+                        "markdownDescription": "Enter your [API Key](https://aistudio.google.com/app/apikey) for Gemini."
+                    }
+                }
+            }
+        ]
+    },
+    "scripts": {
+        "lint": "eslint .",
+        "pretest": "npm run lint",
+        "test": "vscode-test"
+    },
+    "devDependencies": {
+        "@types/mocha": "^10.0.6",
+        "@types/node": "18.x",
+        "@types/vscode": "^1.88.0",
+        "@vscode/test-cli": "^0.0.8",
+        "@vscode/test-electron": "^2.3.9",
+        "eslint": "^8.57.0",
+        "typescript": "^5.3.3"
+    },
+    "dependencies": {
+        "@google/generative-ai": "^0.5.0"
+    }
 }
