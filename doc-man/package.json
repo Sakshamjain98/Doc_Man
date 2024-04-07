@@ -3,6 +3,8 @@
     "displayName": "doc-man",
     "description": "",
     "version": "0.0.1",
+    "publisher": "NemesisDev2",
+    "repository": "https://github.com/Sakshamjain98/Doc_Man",
     "engines": {
         "vscode": "^1.88.0"
     },
