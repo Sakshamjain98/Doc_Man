@@ -1,6 +1,6 @@
 # DocMan
 
-An AI assistant to chrge up your workflow by writing documentation and comments for you!
+An AI assistant to charge up your workflow by writing documentation and comments for you!
 
 ## Features
 
