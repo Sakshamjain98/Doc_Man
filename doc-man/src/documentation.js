@@ -52,7 +52,7 @@ This function uses the \`fetch API\` and async/await syntax. Make sure your envi
 
 async function generateDocs() {
     
-    const apiKey = vscode.workspace.getConfiguration().get('google.gemini.apiKey');
+    const apiKey = vscode.workspace.getConfiguration().get('docman.gemini.apiKey');
     if (!apiKey) {
         vscode.window.showErrorMessage('API key not configured. Check your settings.');
         return;
@@ -63,7 +63,6 @@ async function generateDocs() {
     const model = genai.getGenerativeModel({model: "models/gemini-1.0-pro-latest"});
 
     const editor = vscode.window.activeTextEditor;
-
     if (!editor) {
         vscode.window.showErrorMessage("No file window opened!");
         return;
@@ -73,7 +72,6 @@ async function generateDocs() {
     const arr = basename.split(".");
     arr.pop();
     const title = arr.join(".");
-    console.log(title);
     const code = editor.document.getText();
 
     const fullPrompt = `${PROMPT}
